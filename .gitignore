@@ -37,3 +37,6 @@
 # js file in Typescript solutions
 */typescript/*.js
 */ts/*.js
+
+# Temporay files
+*.log
