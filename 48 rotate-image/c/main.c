@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * 1 2 3
@@ -26,12 +27,23 @@
 
 
 void rotate(int **matrix, int row, int col) {
+  int *old = (int*) matrix;
+
+  int *img = malloc(sizeof(int) * row * col);
+
   for (int i = 0; i < col; i++) {
     for (int j = 0; j < row; j++) {
-      int t = (int) *(matrix + (row - j - 1) * col + i);
-      printf("%d\n", t);
+      *(img + i * row + j) = *(old + (row - j - 1) * col + i);
     }
   }
+
+  for (int i = 0; i < row; i++) {
+    for (int j = 0; j < col; j++) {
+      *(old + i * col + j) = *(img + i * col + j);
+    }
+  }
+
+  free(img);
 }
 
 int main(void) {
@@ -41,6 +53,13 @@ int main(void) {
     {7, 8, 9, 0}
   };
 
-  int **s = (int **)img;
+  int **s = (int **) img;
   rotate(s, 3, 4);
+
+  for(int i = 0; i < 4; i++) {
+    for (int j = 0; j < 3; j++) {
+      printf("%d ", *(s + i * 3 + j));
+    }
+    printf("\n");
+  }
 }
