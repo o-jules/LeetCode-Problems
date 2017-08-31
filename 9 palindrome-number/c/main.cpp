@@ -2,12 +2,13 @@
 #include<vector>
 
 bool isPalindrome(int x) {
-  printf("test x = %d, -x = %d.\n", x, -x);
-  if (x = 0)
+  if (x == 0)
     return true;
 
   if (x < 0) {
-    x = -x;
+    // x = -x;
+    // Leetcode要求负数为false
+    return false;
   }
 
   std::vector<int> list;
@@ -38,8 +39,12 @@ int main(void) {
     printf("yes!\n");
   }
 
-  // overflow test:
   if (isPalindrome(-2147483648)) {
+    printf("yes!\n");
+  }
+
+  // overflow test:
+  if (isPalindrome(-2147447412)) {
     printf("yes!\n");
   }
 }
