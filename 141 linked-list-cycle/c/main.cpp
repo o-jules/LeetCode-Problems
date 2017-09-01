@@ -6,6 +6,13 @@
  * };
  */
 
+/**
+ * 设链表长度为n，则：
+ * 时间复杂度：
+ *
+ * 1 + 2 + .. + n = O(n^2)
+ *
+ */
 bool hasCycle(struct ListNode *head) {
   if (head == NULL || head->next == NULL)
     return false;
