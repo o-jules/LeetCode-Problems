@@ -1,5 +1,5 @@
 int hammingDistance(int x, int y) {
-  x = x ^ y;
+  int z = x ^ y;
   int zb = z;
   int c = 0;
   while (z) {
