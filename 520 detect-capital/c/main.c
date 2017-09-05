@@ -3,21 +3,22 @@
 // 检测一个字符串里的所有单词
 
 int detectCapitalUse(char* word) {
-  char *c = word;
-  int i = 0;
+  int length = strlen(word);
+  int c = 0;
 
+  int i = 0;
   int f = 0, // 首字母大写
       a = 0; // 全大写
 
-  while (*c != '\0') {
-    if (*c == ' ') {
+  while (c < length) {
+    if (word[c] == ' ') {
       f = a = 0;
       i = 0;
       c++;
       continue;
     }
 
-    if (*c >= 'A' && *c <= 'Z') {
+    if (word[c] >= 'A' && word[c] <= 'Z') {
       if (i == 0) {
         f = 1;
       } else if(i == 1) {
