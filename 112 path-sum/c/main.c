@@ -1,29 +1,18 @@
 
-struct TreeNode {
+struct TreeNode
+{
   int val;
   struct TreeNode *left;
   struct TreeNode *right;
 };
 
-bool hasPathSum(struct TreeNode* root, int sum) {
-  if (root == NULL) {
+bool hasPathSum(struct TreeNode *root, int sum) {
+  if (root == NULL)
     return false;
-  }
 
-  if (root->left == NULL && root->right == NULL) {
-    return sum == root->val;
-  } else {
-    sum -= root->val;
-    if (hasPathSum(root->left, sum)) {
-      return true;
-    }
-
-    if (hasPathSum(root->right, sum)) {
-      return true;
-    }
-
-    return false;
-  }
+  sum -= root->val;
+  return (root->left == NULL && root->right == NULL && sum == 0) ||
+         (hasPathSum(root->left, sum) || hasPathSum(root->right, sum));
 }
 
 // test case:
