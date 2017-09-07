@@ -13,12 +13,8 @@ vector<int> plusOne(vector<int> &digits) {
       f = 1;
   for (; i >= 0; i--) {
     j = digits[i] + f;
-    if (j >= 10) {
-      f = 1;
-      j -= 10;
-    } else {
-      f = 0;
-    }
+    f = j/10;
+    j %= 10;
     res.insert(res.begin(), 1, j);
   }
 
