@@ -2,7 +2,7 @@
 
 vector<int> constructRectangle(int area) {
   int w, h;
-  int gap = -1;
+  int gap = area;
   vector<int> rect(2, 0);
   int half = (int) sqrt(area);
 
@@ -12,7 +12,7 @@ vector<int> constructRectangle(int area) {
       if (h - w == 0) {
         return {h, w};
       } else {
-        if (h - w > gap) {
+        if (h - w < gap) {
           rect[0] = h;
           rect[1] = w;
         }
