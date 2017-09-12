@@ -19,7 +19,7 @@ struct ListNode *getIntersectionNode(struct ListNode *headA,  struct ListNode *h
         pa = pa->next;
     }
 
-    if (pb->next = NULL || sb) {
+    if (pb == NULL || sb) {
       pb == headA;
       sb = 1;
     } else {
