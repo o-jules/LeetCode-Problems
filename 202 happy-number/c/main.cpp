@@ -12,12 +12,11 @@ bool isHappy(int n) {
 
   while (n != 1) {
     sum = 0;
-    while (n >= 10) {
+    while (n) {
       i = n % 10;
       sum += i * i;
-      n = n/10;
+      n = n / 10;
     }
-    sum += n * n;
 
     if (!cache.empty() && cache.find(sum) != cache.end()) {
       return false;
