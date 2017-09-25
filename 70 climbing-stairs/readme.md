@@ -22,6 +22,28 @@ g(0) = N!/N! = 1
 
 g(y + 1) = g(y) * (N - 2y)(N - 2y + 1)/ ((y + 1)(N - y))
 
+**伪代码**
+
+```c
+int gy1(int y, int gy, int N) {
+  return gy * (N - 2 * y) * (N - 2 * y + 1) / (y + 1) / (N - y);
+}
+
+int f(int n) {
+  int mid = n/2, y = 0;
+  int count = 0;
+  int fy = 0;
+  while (y <= mid) {
+    gy = y ? gy1(y - 1, gy, n) : 1;
+
+    count += gy;
+    y++;
+  }
+
+  return count;
+}
+```
+
 ## 分析2
 
 对于N，
@@ -31,3 +53,9 @@ N = 2, f(N) = 2
 N > 2, f(N) = f(N - 1) + f(N - 2)
 
 (即对于完成N，最后一步有两个可能： 1. 完成 N - 1 步后，进 1 步； 2. 完成 N - 2 步后，进 2 步)
+
+### Fibbonaci 函数
+
+$$
+F_n = 1 / \sqrt{5} \(\(\frac{1+\sqrt{5}}{2}\)^{n+1} - \(\frac{1 - \sqrt{5}}{2}\)^{n+1}\)
+$$
