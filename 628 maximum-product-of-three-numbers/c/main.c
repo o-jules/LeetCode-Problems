@@ -2,15 +2,15 @@
 #include<limits.h>
 
 int maximumProduct(int* nums, int numsSize) {
+  int i;
   if (numsSize == 3) {
     int p = 1;
-    for(int i = 0; i < numsSize; i++) {
+    for(i = 0; i < numsSize; i++)
       p *= nums[i];
-    }
     return p;
   }
 
-  int cpos = 0, cneg = 0;
+  int cpos = 0;
   int pos[3] = {0, 0, 0};    // 绝对值最大的3个正整
   int neg[2] = {0, 0};       // 绝对值最大的2个负数
   int negMin[3] = {INT_MIN, INT_MIN, INT_MIN}; // 绝对值最小的3个负数
@@ -30,7 +30,6 @@ int maximumProduct(int* nums, int numsSize) {
         pos[2] = nums[i];
       }
     } else {
-      cneg ++;
 
       if (nums[i] < neg[0]) {
         neg[1] = neg[0];
