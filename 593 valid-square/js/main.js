@@ -20,7 +20,7 @@ var validSquare = function(p1, p2, p3, p4) {
     d(p2, p3),
     d(p2, p4),
     d(p3, p4)
-  ].sort((l, r) => l >= r)
+  ].sort((l, r) => l - r)
 
   return (ds[0] !== 0 &&
     (
