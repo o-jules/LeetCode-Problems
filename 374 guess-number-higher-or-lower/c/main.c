@@ -16,7 +16,7 @@ int guessNumber(int n) {
 
     if (s == 0) {
       return mid;
-    } else if (s == 1) {
+    } else if (s == -1) {
       r = mid - 1;
     } else {
       l = mid + 1;
