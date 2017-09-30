@@ -4,6 +4,9 @@
 
 int guess(int num);
 
+/**
+ * Leetcode 最优解
+ */
 int guessNumber(int n)
 {
   int lo = 1;
