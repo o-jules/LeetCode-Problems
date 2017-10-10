@@ -13,7 +13,7 @@ var oddEvenList = function(head) {
   if (head === null)
     return head;
 
-  let h1 = head, p1 = head, t1 = head
+  let p1 = head, t1 = head
   let h2 = head.next, p2 = null, temp = null;
 
   while(p1) {
