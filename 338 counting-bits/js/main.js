@@ -3,7 +3,8 @@
  * @return {number[]}
  */
 var countBits = function(num) {
-  if (num <= 0) return [0]
+  if (num < 0) return []
+  if (num === 0) return [0]
 
   let arr = new Array(num + 1).fill(0)
   arr[1] = 1
@@ -13,8 +14,7 @@ var countBits = function(num) {
 
   while (i <= num) {
     if (i == k) {
-      arr[i] = 1
-      j = 1
+      arr[i] = j = 1
       k *= 2
     } else {
       arr[i] = 1 + arr[j]
@@ -27,6 +27,8 @@ var countBits = function(num) {
   return arr
 };
 
+
+// test
 // console.log(countBits(0))
 console.log(countBits(1))
 // console.log(countBits(2))
