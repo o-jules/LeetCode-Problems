@@ -32,11 +32,8 @@ var thirdMax = function(nums) {
     }
   }
 
-  if (
-    max[0] !== null &&
-    max[1] !== null &&
-    max[2] !== null) {
-      return max[2]
+  if (max[2] !== null) {
+    return max[2]
   }
 
   return max[0]
