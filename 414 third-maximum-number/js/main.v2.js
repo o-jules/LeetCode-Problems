@@ -24,3 +24,6 @@ var thirdMax = function(nums) {
 // 这个算法的问题：
 // 不能避免序列值第3小的数是 -Infinity 的情况。
 // 即： [1, 0, -Infinity] 应该返回 -Infinity，但返回了 max1
+
+// C, C++的解法中使用 LONGLONG_MIN 的原理相似，
+// 属于技巧，但不是通用的方法。
