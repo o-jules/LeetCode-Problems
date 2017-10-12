@@ -10,24 +10,25 @@
  * @return {number}
  */
 function countNodes(root) {
-  if (root == null) return 0;
-  if (root.left == null) return 1;
+  if (root === null) return 0;
+  if (root.left === null) return 1;
 
   let height = 0, nodesSum = 0;
   let p = root;
-  while (p.left != null) {
+  while (p.left) {
     nodesSum += (1 << height);
     height++;
     p = p.left;
   }
+
   return nodesSum + countLastLevel(root, height);
 }
 
 function countLastLevel(root, height) {
-  if (height == 1) {
-    if (root.right != null)
+  if (height === 1) {
+    if (root.right)
       return 2;
-    else if (root.left != null)
+    else if (root.left)
       return 1;
     else
       return 0;
@@ -39,7 +40,7 @@ function countLastLevel(root, height) {
     currHeight++;
     midNode = midNode.right;
   }
-  if (midNode == null)
+  if (midNode === null)
     return countLastLevel(root.left, height - 1);
   else
     return (1 << (height - 1)) + countLastLevel(root.right, height - 1);
