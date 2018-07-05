@@ -26,6 +26,9 @@ var dominantIndex = function(nums) {
   return largestIndex;
 };
 
+// 时间复杂度：O(2n)
+// 空间复杂度：O(1)
+
 console.log(
   dominantIndex([4,3,1,0])
 )
