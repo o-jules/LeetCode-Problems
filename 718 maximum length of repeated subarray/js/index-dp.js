@@ -1,4 +1,4 @@
-// O(m * n * k)
+// 动态规划
 
 /**
  * @param {number[]} A
@@ -8,23 +8,28 @@
 var findLength = function(A, B) {
   const la = A.length;
   const lb = B.length;
-  let cal = 0; // common array length
 
+  let max = 0;
   for (let i = 0; i < la; i++) {
+    // prefix, (A, 0, i)
     for (let j = 0; j < lb; j++) {
-      let l = 0;
-      while(i + l < la && j + l < lb && A[i + l] === B[j + l]) {
-        l++;
-      }
-
-      if (l > cal) {
-        cal = l;
+      // prefix, (B, 0, j)
+      const m = lcs(A, B, i, j);
+      if (m > max) {
+        max = m;
       }
     }
   }
 
-  return cal;
+  return max;
 };
+
+function lcs(A, B, i, j) {
+  if (A[i] === B[j]) {
+    return lcs(A, B, i - 1, j - 1) + 1;
+  }
+  return 0;
+}
 
 const TestCases = [
   {
@@ -32,7 +37,6 @@ const TestCases = [
     B: [3,2,1,4,7]
   }
 ]
-
 TestCases.forEach(cs => {
   console.log(findLength(cs.A, cs.B))
 })
