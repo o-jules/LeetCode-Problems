@@ -7,11 +7,11 @@
  */
 
 struct ListNode* rotateRight(struct ListNode* head, int k) {
-  if (head == NULL) {
+  if (head == NULL || head->next == NULL || k == 0) {
       return head;
   }
-  struct ListNode* p1 = head;
-  struct ListNode* p2 = head;
+  struct ListNode *p1, *p2;
+  p1 = p2 = head;
   int len = 0;
 
   while (k > 0) {
@@ -28,9 +28,11 @@ struct ListNode* rotateRight(struct ListNode* head, int k) {
     p1 = p1->next;
     p2 = p2->next;
   }
+  // now p2 is tail
   p2->next = head;
   p2 = p1->next;
   p1->next = NULL;
 
   return p2;
 }
+
