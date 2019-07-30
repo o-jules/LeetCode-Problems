@@ -22,12 +22,7 @@ int* nextLargerNodes(struct ListNode* head, int* returnSize) {
     *returnSize = 0;
     return greaterNodeList;
   }
-  if (!head->next) {
-    *returnSize = 1;
-    greaterNodeList = (int*)malloc(sizeof(int));
-    *greaterNodeList = 0;
-    return greaterNodeList;
-  }
+
   int size = 0;
   struct ListNode* p;
   p = head;
@@ -74,10 +69,9 @@ int* nextLargerNodes(struct ListNode* head, int* returnSize) {
 }
 
 
-
 int main() {
-  int count = 6;
-  int list[6] = {9,7,6,7,6,9};
+  int count = 1;
+  int list[1] = {2};
 
   struct ListNode *head = NULL;
   struct ListNode *p = NULL;
