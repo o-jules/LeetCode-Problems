@@ -18,14 +18,14 @@ int* twoSum(int* numbers, int numbersSize, int target, int* returnSize){
             l = j, r = numbersSize - 1;
             while (l < r) {
               m = l + (r - l) / 2;
-              if (numbers[m] > k) {
-                r = m;
-              } else if (numbers[m] < k) {
-                l = m + 1;
-              } else {
-                *returnA = i + 1;
-                *(returnA + 1) = m + 1;
+              if (k == numbers[m])  {
+                returnA[0] = i + 1;
+                returnA[1] = m + 1;
                 return returnA;
+              } else if (k < numbers[m]) {
+                r = m - 1;
+              } else if (k > numbers[m]) {
+                l = m + 1;
               }
             }
         }
@@ -43,9 +43,19 @@ int main() {
   ar = twoSum(a1, 7, t1, size);
   printf("[%d, %d]\n", ar[0], ar[1]);
 
-  int a2[7] = { 2,3,4 };
+  int a2[7] = { 2, 3, 4 };
   int t2 = 6;
-  ar = twoSum(a2, 7, t2, size);
+  ar = twoSum(a2, 3, t2, size);
+  printf("[%d, %d]\n", ar[0], ar[1]);
+
+  int a3[26020] = {0};
+  a3[13010] = 2;
+  a3[13011] = 3;
+  for (int i = 13012; i < 26020; i++) {
+    a3[i] = 9;
+  }
+  int t3 = 5;
+  ar = twoSum(a3, 26020, t3, size);
   printf("[%d, %d]\n", ar[0], ar[1]);
 
   free(size);
